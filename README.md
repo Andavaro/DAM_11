@@ -1,4 +1,4 @@
-# Proyecto IoT con Ionic y Angular
+# Trabajo Final DAM
 
 ## Descripción
 Este proyecto consiste en una aplicación móvil desarrollada con **Ionic** y **Angular** para gestionar dispositivos IoT. La app interactúa con dispositivos, muestra mediciones de sensores y controla válvulas de manera remota. Se incluye un backend simulado para interactuar con datos de una base de datos local utilizando **XAMPP** y **Node.js**.
