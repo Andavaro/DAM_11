@@ -1,0 +1,91 @@
+/* --- Estilos del Toast Personalizado --- */
+// Nota: Si quieres que este estilo se aplique a toda la app,
+// mueve esta sección a tu archivo global.scss.
+:host ::ng-deep .custom-toast {
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  left: 100px;
+  position: absolute;
+  bottom: 10px;
+  background-color: #3880ff;
+  
+  
+  .toast-message {
+    font-weight: 500;
+  }
+}
+
+
+/* --- Estilos de la Página de Detalle del Dispositivo --- */
+$bg-color-light: #f4f5f8;
+$card-bg-light: #ffffff;
+$text-primary-light: #222428;
+$text-secondary-light: #989aa2;
+$accent-color-light: #3880ff;
+$radius-light: 12px;
+$shadow-light: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+ion-toolbar {
+  --background: $bg-color-light;
+  --color: $text-primary-light;
+  --border-width: 0 !important;
+}
+
+ion-content {
+  --background: $bg-color-light;
+  --color: $text-primary-light;
+}
+
+ion-card {
+  background: $card-bg-light;
+  border-radius: $radius-light;
+  box-shadow: $shadow-light;
+  margin: 16px;
+  padding: 10px;
+
+  ion-card-header {
+    ion-card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $text-primary-light;
+      text-align: center;
+    }
+  }
+
+  ion-card-content {
+    text-align: center;
+    p:first-child {
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: $accent-color-light;
+      margin: 10px 0;
+      line-height: 1;
+    }
+    p:last-child {
+      font-size: 0.9rem;
+      color: $text-secondary-light;
+    }
+  }
+}
+
+ion-button {
+  --border-radius: $radius-light;
+  height: 50px;
+  font-weight: 500;
+  text-transform: none;
+  margin: 12px 16px; // Añadido margen lateral
+}
+
+.action-button {
+  --background: $accent-color-light;
+  --box-shadow: 0 4px 10px rgba(56, 128, 255, 0.3);
+  --color: #ffffff;
+}
+
+.history-button-light {
+  --background: #e9efff;
+  --color: $accent-color-light;
+  --box-shadow: none;
+}

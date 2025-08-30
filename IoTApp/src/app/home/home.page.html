@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Mis Dispositivos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="dispositivos">
+    
+    <div *ngIf="dispositivos.length > 0; else noData">
+      <ion-card *ngFor="let d of dispositivos" 
+                (click)="verDispositivo(d?.dispositivoId)" 
+                class="device-card"
+                button="true">
+        <ion-item lines="none">
+          <ion-icon name="hardware-chip-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <h2>{{ d?.nombre }}</h2>
+            <p>{{ d?.ubicacion }}</p>
+          </ion-label>
+          <ion-icon name="chevron-forward-outline" slot="end" color="medium"></ion-icon>
+        </ion-item>
+      </ion-card>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <div class="empty-state">
+      <ion-icon name="cloud-offline-outline"></ion-icon>
+      <h3>No hay dispositivos</h3>
+      <p>Cuando agregues uno, aparecerá aquí.</p>
+    </div>
+  </ng-template>
+</ion-content>

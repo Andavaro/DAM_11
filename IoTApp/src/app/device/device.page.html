@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ dispositivo?.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid fixed="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8" size-lg="6">
+
+        <ion-card *ngIf="ultimaMedicion">
+          <ion-card-header>
+            <ion-card-title>Última medición</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ ultimaMedicion.valor }} %</p>
+            <p><ion-icon name="time-outline"></ion-icon> {{ ultimaMedicion.fecha | date:'short' }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="block" (click)="toggleValvula()" class="action-button">
+          <ion-icon slot="start" [name]="estadoValvula ? 'close-circle-outline' : 'water-outline'"></ion-icon>
+          {{ estadoValvula ? 'Cerrar válvula' : 'Abrir válvula' }}
+        </ion-button>
+
+        <ion-button expand="block" [routerLink]="['/historial', dispositivo?.dispositivoId]"
+          class="history-button-light">
+          <ion-icon slot="start" name="analytics-outline"></ion-icon>
+          Ver historial
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,114 @@
+/* --- Variables de Diseño --- */
+$bg-color: #f4f5f8;
+$line-color: #e0e4eb;
+$icon-bg: #ffffff;
+$text-primary: #1e2023;
+$text-secondary: #6e747b;
+$primary-color: #3880ff;
+
+/* --- Estilos Generales --- */
+ion-toolbar {
+  --background: $bg-color;
+  --color: $text-primary;
+  ion-title {
+    font-weight: 700;
+  }
+}
+
+ion-content {
+  --background: $bg-color;
+}
+
+/* --- Estilos de la Línea de Tiempo --- */
+.timeline {
+  position: relative;
+  padding: 20px;
+  
+  // La línea vertical de la línea de tiempo
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    height: 100%;
+    width: 2px;
+    background: $line-color;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: 40px;
+  // Centra el icono perfectamente sobre la línea
+  transform: translateX(-50%);
+  
+  // Círculo que contiene el ícono
+  background: $icon-bg;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $line-color;
+  
+  ion-icon {
+    font-size: 22px;
+  }
+}
+
+.timeline-content {
+  // Espacio para que el contenido no se solape con la línea
+  padding-left: 75px; 
+  width: 100%;
+
+  .measurement-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  .measurement-date {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    margin-top: 4px;
+  }
+}
+
+/* --- Estilo para la pantalla vacía (consistente con la otra página) --- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+  padding: 20px;
+
+  ion-icon {
+    font-size: 80px;
+    color: #c0c4d1;
+  }
+
+  h3 {
+    margin-top: 16px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  p {
+    color: $text-secondary;
+  }
+}
+
+ion-header {
+  z-index: 100;
+}

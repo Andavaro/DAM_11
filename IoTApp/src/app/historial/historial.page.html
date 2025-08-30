@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="mediciones">
+    
+    <div class="timeline" *ngIf="mediciones.length > 0; else noData">
+      <div class="timeline-item" *ngFor="let medicion of mediciones">
+        
+        <div class="timeline-icon">
+          <ion-icon name="water-outline" color="primary"></ion-icon>
+        </div>
+
+        <div class="timeline-content">
+          <h2 class="measurement-value">{{ medicion.valor }} %</h2>
+          <p class="measurement-date">{{ medicion.fecha | date: 'dd/MM/yyyy, h:mm a' }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #noData>
+    <div class="empty-state">
+      <ion-icon name="analytics-outline"></ion-icon>
+      <h3>Sin registros</h3>
+      <p>No hay mediciones en el historial de este dispositivo.</p>
+    </div>
+  </ng-template>
+
+</ion-content>

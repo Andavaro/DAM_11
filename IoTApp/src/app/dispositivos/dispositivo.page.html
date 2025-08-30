@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ dispositivo?.nombre || 'Dispositivo' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="ultimaMedicion; else sinMedicion">
+    <ion-card-header>
+      <ion-card-title>Última medición</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>{{ ultimaMedicion.valor }} %</strong></p>
+      <p>{{ ultimaMedicion.fecha | date:'short' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #sinMedicion>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Sin mediciones</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        No se encontraron mediciones para este dispositivo.
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+  <ion-button expand="block" (click)="accionValvula()">
+    {{ estadoValvula === null ? 'Accionar válvula' : (estadoValvula ? 'Cerrar válvula' : 'Abrir válvula') }}
+  </ion-button>
+
+  <ion-button expand="block" [routerLink]="['/historial', dispositivo?.dispositivoId]" color="light">
+    Ver historial de mediciones
+  </ion-button>
+</ion-content>
